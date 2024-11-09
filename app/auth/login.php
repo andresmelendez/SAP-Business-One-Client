@@ -1,5 +1,6 @@
 <?php
 
+require 'updateRepository.php';
 require '../../database/ConectorBD.php';
 require '../../class/SAP/OUSR.php';
 

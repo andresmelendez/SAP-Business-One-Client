@@ -1,6 +1,6 @@
 <?php
 $project_path = __DIR__ . '/../../'; // Directorio del proyecto local
-$remote_version_url = 'https://raw.githubusercontent.com/andresmelendez/pruebasodbc/main/version.txt';
+$remote_version_url = 'https://raw.githubusercontent.com/andresmelendez/SAP-Business-One-Client/main/version.txt';
 $local_version_file = $project_path . 'version.txt';
 $temp_zip_file = sys_get_temp_dir() . '/temp_project_' . uniqid() . '.zip'; // Archivo ZIP temporal
 
@@ -13,7 +13,7 @@ $local_version = file_exists($local_version_file) ? trim(file_get_contents($loca
 
 if ($local_version !== $remote_version) {
     // Descargar el archivo ZIP del repositorio
-    $zip_url = 'https://github.com/andresmelendez/pruebasodbc/archive/refs/heads/main.zip';
+    $zip_url = 'https://github.com/andresmelendez/SAP-Business-One-Client/archive/refs/heads/main.zip';
     file_put_contents($temp_zip_file, file_get_contents($zip_url));
 
     // Descomprimir el archivo ZIP
@@ -25,8 +25,8 @@ if ($local_version !== $remote_version) {
         // Eliminar el archivo ZIP temporal
         unlink($temp_zip_file);
 
-        // Eliminar la carpeta de ejemplo de GitHub 'pruebasodbc-main' y mover los archivos a la ruta del proyecto local
-        $extracted_folder = $project_path . 'pruebasodbc-main';
+        // Eliminar la carpeta de ejemplo de GitHub 'SAP-Business-One-Client-main' y mover los archivos a la ruta del proyecto local
+        $extracted_folder = $project_path . 'SAP-Business-One-Client-main';
         moveFolder($extracted_folder, $project_path);
 
         // Asegúrate de que todos los archivos dentro del directorio hayan sido eliminados antes de usar rmdir
