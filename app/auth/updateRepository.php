@@ -4,9 +4,6 @@ $remote_version_url = 'https://raw.githubusercontent.com/andresmelendez/SAP-Busi
 $local_version_file = $project_path . 'version.txt';
 $temp_zip_file = sys_get_temp_dir() . '/temp_project_' . uniqid() . '.zip'; // Archivo ZIP temporal
 
-echo $local_version_file;
-echo $temp_zip_file;
-
 // Descargar la versión remota
 $remote_version = trim(file_get_contents($remote_version_url));
 $local_version = file_exists($local_version_file) ? trim(file_get_contents($local_version_file)) : null;
@@ -35,9 +32,7 @@ if ($local_version !== $remote_version) {
         // Actualizar el archivo version.txt con la nueva versión
         file_put_contents($local_version_file, $remote_version);
 
-        echo "Proyecto actualizado correctamente.";
-    } else {
-        echo "Error al descomprimir el archivo ZIP.";
+        
     }
 }
 
